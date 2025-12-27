@@ -1,8 +1,6 @@
 # FHE Diary
 
-━━━━━━━━━━━━━━━━━━━━Private notes · Encrypted forever · On-chain━━━━━━━━━━━━━━━━━━━━
-
-> Your personal diary on blockchain — readable only by you
+━━━━━━━━Private notes · Encrypted forever · On-chain━━━━━━━
 
 **FHE Diary** is a minimal, privacy-first notes application where every entry is encrypted *before* it ever reaches the blockchain.  
 No servers. No admins. No trust assumptions.
