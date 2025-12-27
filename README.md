@@ -1,8 +1,6 @@
 # FHE Diary
 
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-Private notes · Encrypted forever · On-chain
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+━━━━━━━━━━━━━━━━━━━━Private notes · Encrypted forever · On-chain━━━━━━━━━━━━━━━━━━━━
 
 > Your personal diary on blockchain — readable only by you
 
