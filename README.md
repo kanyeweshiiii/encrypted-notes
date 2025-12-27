@@ -1,130 +1,161 @@
-# 📔 FHE Diary
+╔════════════════════════════════════════════════════════════╗
+║                                                            ║
+║                     F H E   D I A R Y                      ║
+║                                                            ║
+║        Private notes. Encrypted forever. On-chain.         ║
+║                                                            ║
+╚════════════════════════════════════════════════════════════╝
 
-> Your private diary on blockchain with FHE encryption
+> Your personal diary on blockchain — readable only by you
 
-A notes app where all your entries are encrypted using Zama FHE tech. Only you can decrypt and read your notes - complete privacy on blockchain.
+**FHE Diary** is a minimal, privacy-first notes application where every entry is encrypted *before* it ever reaches the blockchain.  
+No servers. No admins. No trust assumptions.
 
-## 🎯 What is this?
-
-It's a diary, but on blockchain. Your notes are encrypted so even blockchain nodes can't read them. Only you with your wallet can decrypt your entries.
-
-## ✨ Features
-
-- 🔐 **Encrypted Notes**: All content is encrypted through FHE before sending to blockchain
-- 👤 **Encryption for You**: Notes are encrypted for your specific wallet address
-- ✏️ **Create, Edit, Delete**: Full CRUD for your notes
-- 🏷️ **Tags**: Organize notes with tags
-- ⭐ **Favorites**: Mark notes with star for quick access
-- 📅 **Auto Dates**: Creation and update dates are added automatically
-- 🔒 **Private Decryption**: Only you can decrypt your notes through wallet signature
-
-## 🚀 Quick Start
-
-1. **Get test ETH** - Need Sepolia testnet ETH. Get some [here](https://sepoliafaucet.com/)
-2. **Connect wallet** - MetaMask or any other Web3 wallet
-3. **Switch to Sepolia** - Make sure you're on testnet
-4. **Start writing** - Create your first encrypted note!
-
-## 📦 Installation
-
-```bash
-# Install dependencies
-npm install
-
-# Set up environment variables (see below)
-
-# Run dev server
-npm run dev
-
-# Open http://localhost:3000
-```
-
-## ⚙️ Environment Variables
-
-Create `.env.local` file in project root:
-
-```env
-# Sepolia RPC URL
-SEPOLIA_RPC_URL=https://sepolia.drpc.org
-
-# Private key for contract deployment (optional, only for deployment)
-PRIVATE_KEY=your_private_key
-
-# Notes contract address (after deployment)
-NEXT_PUBLIC_NOTES_CONTRACT_ADDRESS=0x...
-
-# WalletConnect Project ID (optional)
-NEXT_PUBLIC_WALLETCONNECT_PROJECT_ID=your_project_id
-```
-
-## 🏗️ Smart Contract Deployment
-
-```bash
-# Compile contracts
-npm run compile
-
-# Deploy to Sepolia
-npm run deploy:notes
-```
-
-After deployment, update `NEXT_PUBLIC_NOTES_CONTRACT_ADDRESS` in `.env.local`.
-
-## 📱 Pages
-
-- **Home** (`/home`): All your notes
-- **Create** (`/create`): Create new note or edit existing one
-- **Favourites** (`/favourites`): Your favorite notes
-
-## 🔐 How It Works
-
-1. **Encryption**: When you create a note, content is encrypted through Zama FHE relayer for your address
-2. **Storage**: Encrypted content (handle) is saved on blockchain
-3. **Decryption**: When you want to read a note, you sign EIP712 message with wallet to authorize decryption
-4. **Privacy**: Only you can decrypt your notes - even blockchain nodes can't see content
-
-## 🛠️ Tech Stack
-
-- **Frontend**: Next.js 14, React, TypeScript
-- **Styling**: Tailwind CSS
-- **Blockchain**: Ethereum Sepolia Testnet
-- **Wallet**: Wagmi, RainbowKit
-- **Encryption**: Zama FHE Relayer SDK
-- **Smart Contracts**: Hardhat, Solidity
-
-## 📄 Smart Contract
-
-**NotesApp Contract**
-- Stores encrypted notes on blockchain
-- Manages user notes with CRUD operations
-- Tracks favorites and tags
-- Emits events for all operations
-
-## 🔒 Security
-
-- Notes are encrypted through FHE before sending to blockchain
-- Only note owner can decrypt their notes
-- EIP712 signature required for decryption authorization
-- All operations require wallet connection
-
-## ⚠️ Important Notes
-
-- This is on **Sepolia testnet** - use test ETH only!
-- Each operation costs gas (obviously)
-- FHE mode needs Zama relayer to work
-- This is a demo project - don't use for something super important
-
-## 📝 License
-
-MIT - Do whatever you want with this code.
-
-## 🙏 Acknowledgments
-
-- [Zama](https://www.zama.ai/) for FHE technology
-- [RainbowKit](https://www.rainbowkit.com/) for wallet connection
-- [Wagmi](https://wagmi.sh/) for Ethereum interactions
+Just **you**, your wallet, and your notes.
 
 ---
 
-Made with ❤️ (and lots of coffee ☕) using Zama FHEVM
+## 🧠 What is FHE Diary?
 
-*P.S. - Your notes are secret. Only you see them. That's the magic of FHE. 🎯*
+FHE Diary is a blockchain-based diary where:
+
+- The blockchain is public  
+- Your notes are **not**
+- Even the app itself cannot read your content
+
+All notes are encrypted using **Fully Homomorphic Encryption (FHE)** and can only be decrypted by the wallet that created them.
+
+---
+
+## ✨ Core Features
+
+- **Encrypted by default**  
+  Notes are encrypted locally via FHE before being stored on-chain
+
+- **Wallet-bound privacy**  
+  Each note is encrypted specifically for your wallet address
+
+- **Full CRUD**  
+  Create, edit, and delete your notes at any time
+
+- **Tags & favorites**  
+  Organize notes without exposing metadata
+
+- **Automatic timestamps**  
+  Creation and update dates handled automatically
+
+- **Private decryption**  
+  Reading a note requires an EIP-712 wallet signature
+
+---
+
+## 🚀 Getting Started
+
+1. Get **Sepolia testnet ETH**
+2. Connect a Web3 wallet (MetaMask, etc.)
+3. Switch network to **Sepolia**
+4. Start writing — encryption happens automatically
+
+---
+
+## 📦 Local Setup
+
+```bash
+npm install
+npm run dev
+
+Open: http://localhost:3000
+
+⸻
+
+⚙️ Environment Variables
+
+Create a .env.local file in the project root:
+
+SEPOLIA_RPC_URL=https://sepolia.drpc.org
+
+# Optional, only for contract deployment
+PRIVATE_KEY=your_private_key
+
+# Set after contract deployment
+NEXT_PUBLIC_NOTES_CONTRACT_ADDRESS=0x...
+
+# Optional
+NEXT_PUBLIC_WALLETCONNECT_PROJECT_ID=your_project_id
+
+
+⸻
+
+🏗️ Smart Contract Deployment
+
+npm run compile
+npm run deploy:notes
+
+After deployment, update:
+
+NEXT_PUBLIC_NOTES_CONTRACT_ADDRESS=0x...
+
+
+⸻
+
+📱 App Pages
+	•	/home — all notes
+	•	/create — create or edit a note
+	•	/favourites — starred notes
+
+Minimal UI. Black & white. No distractions.
+
+⸻
+
+🔐 How Privacy Works
+	1.	You write a note
+	2.	Content is encrypted via FHE for your wallet address
+	3.	Blockchain stores only encrypted data
+	4.	To read a note, you sign an EIP-712 message
+	5.	Only your wallet can decrypt the content
+
+Blockchain nodes, indexers, and apps see only ciphertext.
+
+⸻
+
+🛠️ Tech Stack
+	•	Frontend: Next.js 14, React, TypeScript
+	•	Styling: Tailwind CSS (black & white, minimal)
+	•	Blockchain: Ethereum Sepolia Testnet
+	•	Wallet: Wagmi, RainbowKit
+	•	Encryption: Zama FHE Relayer SDK
+	•	Smart Contracts: Solidity, Hardhat
+
+⸻
+
+🔒 Security Notes
+	•	No plaintext ever stored on-chain
+	•	Only the note owner can decrypt content
+	•	Decryption requires wallet ownership
+	•	No backend with access to user data
+
+The system is designed so it cannot read your notes, even if compromised.
+
+⸻
+
+⚠️ Disclaimer
+	•	Testnet only (Sepolia)
+	•	Gas fees apply
+	•	Experimental / demo project
+	•	Do not store sensitive real-world secrets
+
+⸻
+
+📄 License
+
+MIT — free to use, modify, and distribute.
+
+⸻
+
+
+Silence is privacy.
+Privacy is power.
+Your diary is finally yours.
+
+Built with cryptography, focus, and coffee.
+
